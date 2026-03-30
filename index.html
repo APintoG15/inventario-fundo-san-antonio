@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundo San Antonio - Sistema de Inventarios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;700&family=Calibri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', sans-serif;
+            background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-tree {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: #7b8a27;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(123, 138, 39, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(123, 138, 39, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #d6b469;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #7b8a27;
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .screenshots {
+            margin: 50px 0;
+        }
+
+        .screenshots h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f5f5f5;
+        }
+
+        .gallery-item h3 {
+            padding: 15px;
+            color: #7b8a27;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+        }
+
+        .specs {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .specs h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #7b8a27;
+            font-size: 32px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .spec-item {
+            border-left: 4px solid #d6b469;
+            padding-left: 15px;
+        }
+
+        .spec-item h4 {
+            color: #7b8a27;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .spec-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .kpis {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .kpis h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #7b8a27;
+            font-size: 32px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .kpi-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .kpi-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #d6b469;
+        }
+
+        .kpi-item::before {
+            content: "📊 ";
+        }
+
+        .kpi-item {
+            color: #333;
+            font-weight: 600;
+        }
+
+        footer {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .color-box {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .color-box p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .logo-section {
+                flex-direction: column;
+            }
+
+            .logo-tree {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo-section">
+                <svg class="logo-tree" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="none" stroke="#7b8a27" stroke-width="2"/>
+                    <path d="M50 15 Q45 25 40 30 Q35 25 30 35 Q25 30 20 40 Q15 35 10 50 Q15 55 20 60 Q25 55 30 65 Q35 60 40 70 Q45 65 50 75 Q55 65 60 70 Q65 60 70 65 Q75 55 80 60 Q85 35 90 50 Q85 40 80 45 Q75 30 70 35 Q65 25 60 30 Q55 25 50 15" fill="#7b8a27" opacity="0.8"/>
+                    <line x1="50" y1="85" x2="50" y2="15" stroke="#7b8a27" stroke-width="1.5"/>
+                </svg>
+                <div>
+                    <h1>FUNDO SAN ANTONIO</h1>
+                    <p>Sistema Integral de Inventarios + Facturación</p>
+                </div>
+            </div>
+
+            <a href="inventory_fundo_san_antonio.html" class="cta-button">
+                ▶ ABRIR APP COMPLETA
+            </a>
+        </header>
+
+        <!-- CARACTERÍSTICAS PRINCIPALES -->
+        <section class="features">
+            <div class="feature-card">
+                <h3>📈 Dashboard KPIs</h3>
+                <p>8 indicadores clave con gráficos interactivos en tiempo real</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🔍 Scanner EAN-13</h3>
+                <p>Escanea códigos de barras para entrada/salida automática</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🛒 Facturas PDF</h3>
+                <p>Genera automáticamente facturas profesionales en PDF (Contasis compatible)</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📊 Análisis Completo</h3>
+                <p>Análisis por categoría y producto con métricas de rotación</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>💾 Datos Privados</h3>
+                <p>Almacenamiento local - tus datos nunca salen del navegador</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎨 Branding FSA</h3>
+                <p>Diseñado con identidad visual de Fundo San Antonio</p>
+            </div>
+        </section>
+
+        <!-- TABS PRINCIPALES -->
+        <section class="screenshots">
+            <h2>📱 5 TABS PRINCIPALES</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%); height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📈</div>
+                    <h3>Dashboard</h3>
+                </div>
+
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%); height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">🔍</div>
+                    <h3>Scanner</h3>
+                </div>
+
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%); height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">🛒</div>
+                    <h3>Factura</h3>
+                </div>
+
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%); height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📋</div>
+                    <h3>Productos</h3>
+                </div>
+
+                <div class="gallery-item">
+                    <div style="background: linear-gradient(135deg, #7b8a27 0%, #6b5e46 100%); height: 250px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px;">📊</div>
+                    <h3>Análisis</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPIs DISPONIBLES -->
+        <section class="kpis">
+            <h2>8️⃣ KPIs PRINCIPALES</h2>
+            <div class="kpi-list">
+                <div class="kpi-item">Productos Registrados</div>
+                <div class="kpi-item">Stock Total</div>
+                <div class="kpi-item">Valor Total Inventario</div>
+                <div class="kpi-item">Movimientos Registrados</div>
+                <div class="kpi-item">Facturas Emitidas</div>
+                <div class="kpi-item">Ingresos Totales</div>
+                <div class="kpi-item">Ventas Últimos 7 días</div>
+                <div class="kpi-item">Stock en Riesgo (Alertas)</div>
+            </div>
+        </section>
+
+        <!-- ESPECIFICACIONES -->
+        <section class="specs">
+            <h2>⚙️ ESPECIFICACIONES TÉCNICAS</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>💾 Almacenamiento</h4>
+                    <p>Local (localStorage) - Privado y seguro</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>🌐 Conectividad</h4>
+                    <p>Sin conexión a internet (después de cargar)</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>📱 Compatibilidad</h4>
+                    <p>Chrome, Firefox, Safari, Edge</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>🔒 Seguridad</h4>
+                    <p>Datos locales - Nunca se envían a servidores</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>⚡ Rendimiento</h4>
+                    <p>Ultra rápido - Carga en segundos</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>🎨 Diseño</h4>
+                    <p>Identidad visual Fundo San Antonio</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PALETA DE COLORES -->
+        <section style="background: white; padding: 40px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h2 style="font-family: 'Bebas Neue', sans-serif; color: #7b8a27; font-size: 32px; margin-bottom: 25px; letter-spacing: 1px;">🎨 IDENTIDAD VISUAL</h2>
+            <div class="color-palette">
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #7b8a27;"></div>
+                    <p><strong>Verde Oliva</strong><br>#7b8a27</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #d6b469;"></div>
+                    <p><strong>Oro</strong><br>#d6b469</p>
+                </div>
+                <div class="color-box">
+                    <div class="color-swatch" style="background: #6b5e46;"></div>
+                    <p><strong>Marrón</strong><br>#6b5e46</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HARDWARE RECOMENDADO -->
+        <section style="background: white; padding: 40px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h2 style="font-family: 'Bebas Neue', sans-serif; color: #7b8a27; font-size: 32px; margin-bottom: 25px; letter-spacing: 1px;">💡 HARDWARE RECOMENDADO</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>🔫 Scanner</h4>
+                    <p><strong>Zebra DS3678 Bluetooth</strong><br>$80-120 USD<br>Lee códigos 1D, 2D, QR</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>💻 CPU</h4>
+                    <p><strong>Mini PC o Laptop vieja</strong><br>$100-200 USD<br>Con WiFi y USB</p>
+                </div>
+
+                <div class="spec-item">
+                    <h4>💰 Inversión Total</h4>
+                    <p><strong>$240-340 USD</strong><br>Una sola vez<br>Cero costos mensuales</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="inventory_fundo_san_antonio.html" class="cta-button" style="font-size: 20px; padding: 20px 50px;">
+                ▶ ABRIR APP AHORA
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>🌿 Fundo San Antonio - Sistema de Gestión de Inventarios</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Versión 1.0 | Marzo 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
